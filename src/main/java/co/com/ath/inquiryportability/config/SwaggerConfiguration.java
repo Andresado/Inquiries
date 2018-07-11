@@ -55,6 +55,6 @@ public class SwaggerConfiguration {
 	 * @return the predicate
 	 */
 	private Predicate<String> portabilityPaths() {
-		return regex("/portabilidad/numerica.*");
+		return regex("/inquiry/portability.*");
 	}
 }

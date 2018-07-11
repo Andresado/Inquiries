@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
  */
 
 @RestController
-@RequestMapping("portabilidad/numerica/")
+@RequestMapping("inquiry/portability/")
 @Api(value = "Portability target mobile")
 public class MobilePortabilityController {
 
@@ -36,12 +36,13 @@ public class MobilePortabilityController {
 	public ResponseEntity<MobilePortability> getMobilePortabilityByTarget(@PathVariable("target") String target) {
 		log.info("Se consultó el siguiente movil" + target);
 		MobilePortability mobilePortability = mobilePortabilityService.getMobilePortabilityByTarget(target);
+		
 		try {
-			if (mobilePortability == null) {
+			if (mobilePortability.getTarget() == null) {
 				throw new NotFoundException(target);
 			}
 		} catch (Exception e) {
-			log.info("Se presento un problema al consultar el numero " + target);
+			log.info("Se presentó un problema al consultar el numero " + target);
 		}
 		return new ResponseEntity<MobilePortability>(mobilePortability, HttpStatus.OK);
 	}
