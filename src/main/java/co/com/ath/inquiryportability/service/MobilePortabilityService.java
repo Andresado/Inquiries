@@ -20,7 +20,11 @@ public class MobilePortabilityService implements IMobilePortabilityService {
     @Override
     public MobilePortability getMobilePortabilityByTarget(String target) {
         MobilePortability obj = mobilePortabilityRepository.findByTarget(target);
-        return obj;
+        MobilePortability objPortability = new MobilePortability();
+        
+        obj.setReceiver_carrier(objPortability.getReceiver_carrier());
+        
+        return objPortability;
     }
     
 

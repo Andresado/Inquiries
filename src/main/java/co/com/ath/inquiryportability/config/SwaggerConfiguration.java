@@ -26,7 +26,7 @@ public class SwaggerConfiguration {
 	@Bean
 	public Docket mobilePortabilityApi() {
 		return new Docket(DocumentationType.SWAGGER_2)
-				.groupName("Api-Documentación")
+				.groupName("Api-Documentacion")
 				.apiInfo(mobilePortabilityApiInfo())
 				.select()
 				.paths(portabilityPaths())

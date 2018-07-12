@@ -36,7 +36,6 @@ public class MobilePortabilityController {
 	public ResponseEntity<MobilePortability> getMobilePortabilityByTarget(@PathVariable("target") String target) {
 		log.info("Se consultó el siguiente movil" + target);
 		MobilePortability mobilePortability = mobilePortabilityService.getMobilePortabilityByTarget(target);
-		
 		try {
 			if (mobilePortability.getTarget() == null) {
 				throw new NotFoundException(target);
